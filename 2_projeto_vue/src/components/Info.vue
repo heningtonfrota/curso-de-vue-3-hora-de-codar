@@ -8,6 +8,9 @@
             <li>PHP</li>
             <li>Python</li>
         </ul>
+        <div>
+            <button @click="showEmail">{{ texto_botao }}</button>
+        </div>
         <p v-show="mostrar_email">Mande uma mensagem para: {{ email }}</p>
         <p>Para acessar meu portifolio basta <a v-bind:href="meu_link" target="_blank">Clicar Aqui</a></p>
         <Picture />
@@ -24,9 +27,20 @@ export default {
     data() {
         return {
             esta_trabalhando: true,
-            mostrar_email: true,
+            mostrar_email: false,
             email: 'heningtonfrota@gmail.com',
-            meu_link: 'https://google.com'
+            meu_link: 'https://google.com',
+            texto_botao: 'Mostrar e-mail'
+        }
+    },
+    methods: {
+        showEmail(){
+            this.mostrar_email = !this.mostrar_email
+            if (!this.mostrar_email) {
+                this.texto_botao = "Mostrar e-mail"
+            } else { 
+                this.texto_botao = "Ocultar e-mail"
+            }
         }
     },
 }
