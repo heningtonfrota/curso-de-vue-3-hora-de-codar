@@ -2,11 +2,17 @@
     <div>
         <p v-if="esta_trabalhando">Estou trabalhando no momento.</p>
         <p v-else>Estou em busca de novas oportunidades.</p>
-        <p>Utilizo as seguintes tecnologias: </p>
+        <p>Utilizo as seguintes tecnologias para beck-end: </p>
         <ul>
-            <li>JavaScript</li>
-            <li>PHP</li>
-            <li>Python</li>
+            <li v-for="(tecnologia, index) in beckend_tecnologia" :key="index">
+                {{ tecnologia }}
+            </li>
+        </ul>
+        <p>Utilizo as seguintes tecnologias para front-end: </p>
+        <ul>
+            <li v-for="tecnologia in frontend_tecnologia" :key="tecnologia.id">
+                {{ tecnologia.linguagem }}
+            </li>
         </ul>
         <div>
             <button @click="showEmail">{{ texto_botao }}</button>
@@ -30,7 +36,17 @@ export default {
             mostrar_email: false,
             email: 'heningtonfrota@gmail.com',
             meu_link: 'https://google.com',
-            texto_botao: 'Mostrar e-mail'
+            texto_botao: 'Mostrar e-mail',
+            beckend_tecnologia: [
+                'JavaScript',
+                'PHP',
+                'Python'
+            ],
+            frontend_tecnologia: [
+                {id: 1, linguagem: 'HTML'},
+                {id: 2, linguagem: 'CSS'},
+                {id: 3, linguagem: 'Vue'},
+            ]
         }
     },
     methods: {
