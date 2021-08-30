@@ -1,5 +1,6 @@
 <template>
     <div>
+        <p>{{ email }}</p>
         <p v-if="esta_trabalhando">Estou trabalhando no momento.</p>
         <p v-else>Estou em busca de novas oportunidades.</p>
         <p>Utilizo as seguintes tecnologias para beck-end: </p>
@@ -30,11 +31,13 @@ export default {
     components: {
         Picture
     },
+    props: {
+        email: String,
+        esta_trabalhando: Boolean
+    },
     data() {
         return {
-            esta_trabalhando: true,
             mostrar_email: false,
-            email: 'heningtonfrota@gmail.com',
             meu_link: 'https://google.com',
             texto_botao: 'Mostrar e-mail',
             beckend_tecnologia: [
@@ -62,7 +65,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+    div {
+        border: 1px solid green;
+        padding: 10px;
+    }
+
     .paragrafo-pai {
         color: red;
     }
