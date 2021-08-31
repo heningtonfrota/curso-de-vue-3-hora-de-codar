@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Mensagem</p>
+        <Message :msg="msg" v-show="msg"/>
         <div>
             <form id="burg-form" @submit="createBurg($event)">
                 <div class="input-container">
@@ -37,8 +37,12 @@
 </template>
 
 <script>
+import Message from '../components/Message.vue';
 export default {
     name: "BurgForm",
+    components: { 
+        Message
+    },
     data() {
         return {
             paes: null,
@@ -78,6 +82,9 @@ export default {
                 body: dataJson
             });
             const res = await req.json();
+
+            this.msg = `Pedido Nº ${res.id} realizado com sucesso!`;
+            setTimeout(() => this.msg = "", 3000);
 
             this.nome = "";
             this.carne = "";
