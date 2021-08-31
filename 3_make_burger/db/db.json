@@ -97,8 +97,29 @@
         "Tomate",
         "Pepino"
       ],
-      "status": "Solicitado",
+      "status": "Em produção",
       "id": 2
+    },
+    {
+      "nome": "Maria",
+      "carne": "Maminha",
+      "pao": "Italiano Branco",
+      "opcionais": [
+        "Cheddar",
+        "Bacon"
+      ],
+      "status": "Finalizado",
+      "id": 3
+    },
+    {
+      "nome": "Aline",
+      "carne": "Picanha",
+      "pao": "3 Queijos",
+      "opcionais": [
+        "Cheddar"
+      ],
+      "status": "Em produção",
+      "id": 4
     }
   ]
 }
